@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://shubhranshgupta.github.io/Privy",
+  "homepage": "https://shubhransh-gupta.github.io/Privy",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

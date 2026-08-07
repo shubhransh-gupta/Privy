@@ -26,7 +26,7 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
     { label: 'Open Privacy tools', action: () => navigate('/category/privacy') },
     { label: 'Open Business tools', action: () => navigate('/category/business') },
     { label: 'View Privacy & Security', action: () => navigate('/security') },
-    { label: 'Open GitHub', action: () => window.open('https://github.com/shubhranshgupta/Privy', '_blank') },
+    { label: 'Open GitHub', action: () => window.open('https://github.com/shubhransh-gupta/Privy', '_blank') },
   ]
 
   const items = query.trim()
@@ -158,7 +158,7 @@ export function Header({ onSearchClick }: { onSearchClick: () => void }) {
             Private
           </a>
           <a
-            href="https://github.com/shubhranshgupta/Privy"
+            href="https://github.com/shubhransh-gupta/Privy"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-lg hover:bg-zinc-800 transition-colors text-zinc-400 hover:text-zinc-200"

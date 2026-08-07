@@ -69,4 +69,4 @@ LocalTools relies on browser sandboxing. Users should:
 
 ## Open Source
 
-All code is auditable at [github.com/shubhranshgupta/Privy](https://github.com/shubhranshgupta/Privy). We encourage security researchers to review the implementation.
+All code is auditable at [github.com/shubhransh-gupta/Privy](https://github.com/shubhransh-gupta/Privy). We encourage security researchers to review the implementation.

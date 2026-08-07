@@ -5,7 +5,7 @@ Thank you for considering contributing! LocalTools is designed to make adding ne
 ## Quick Start
 
 ```bash
-git clone https://github.com/shubhranshgupta/Privy.git
+git clone https://github.com/shubhransh-gupta/Privy.git
 cd Privy
 npm install
 npm run dev

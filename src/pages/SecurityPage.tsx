@@ -40,7 +40,7 @@ export function SecurityPage() {
           <h2 className="text-lg font-semibold mb-2">Open Source</h2>
           <p className="text-sm text-zinc-400 leading-relaxed">
             The implementation can be inspected on{' '}
-            <a href="https://github.com/shubhranshgupta/Privy" className="text-indigo-400 hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/shubhransh-gupta/Privy" className="text-indigo-400 hover:underline" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
             . We encourage security researchers to review the code.

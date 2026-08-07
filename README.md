@@ -8,7 +8,7 @@ LocalTools is an all-in-one browser-based toolbox for everyday tasks — PDF man
 
 Every operation happens locally inside your browser. No uploads. No accounts. No tracking.
 
-**Live demo:** [https://shubhranshgupta.github.io/Privy/](https://shubhranshgupta.github.io/Privy/)
+**Live demo:** [https://shubhransh-gupta.github.io/Privy/](https://shubhransh-gupta.github.io/Privy/)
 
 ## Features
 
@@ -43,7 +43,7 @@ Every operation happens locally inside your browser. No uploads. No accounts. No
 ## Getting Started
 
 ```bash
-git clone https://github.com/shubhranshgupta/Privy.git
+git clone https://github.com/shubhransh-gupta/Privy.git
 cd Privy
 npm install
 npm run dev
