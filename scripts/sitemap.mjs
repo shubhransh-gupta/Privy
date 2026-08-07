@@ -1,4 +1,4 @@
-/** Static route list for sitemap generation */
+/** Static route list for sitemap generation and SEO prerendering */
 export const SITEMAP_ROUTES = [
   '/',
   '/security',
@@ -49,10 +49,16 @@ export const SITEMAP_ROUTES = [
 
 export const SITE_URL = 'https://shubhransh-gupta.github.io/Privy'
 
-export function generateSitemap(): string {
+export function generateSitemap() {
   const urls = SITEMAP_ROUTES.map((route) => {
     const loc = `${SITE_URL}${route === '/' ? '/' : route}`
-    const priority = route === '/' ? '1.0' : route.startsWith('/tools/') ? '0.9' : '0.7'
+    const priority = route === '/'
+      ? '1.0'
+      : route === '/tools/json' || route === '/tools/diff'
+        ? '0.95'
+        : route.startsWith('/tools/')
+          ? '0.9'
+          : '0.7'
     const changefreq = route === '/' ? 'weekly' : 'monthly'
     return `  <url>
     <loc>${loc}</loc>
@@ -67,7 +73,7 @@ ${urls}
 </urlset>`
 }
 
-export function generateRobotsTxt(): string {
+export function generateRobotsTxt() {
   return `User-agent: *
 Allow: /
 

@@ -6,6 +6,7 @@ import { CATEGORY_META } from '../lib/toolRegistry'
 import { PrivacyBadge, PrivacyModal } from './PrivacyBadge'
 import { isFavorite, toggleFavorite, addRecentTool } from '../lib/storage'
 import { ToolSeoSection, useToolSEO } from './ToolSeoSection'
+import { getToolSeoContent } from '../lib/seoContent'
 import { useEffect } from 'react'
 import { cn } from '../lib/utils'
 
@@ -21,6 +22,7 @@ export function ToolLayout({ tool, children, actions }: ToolLayoutProps) {
   const cat = CATEGORY_META[tool.category]
 
   useToolSEO(tool)
+  const seo = getToolSeoContent(tool)
 
   useEffect(() => {
     addRecentTool(tool.id)
@@ -41,7 +43,7 @@ export function ToolLayout({ tool, children, actions }: ToolLayoutProps) {
           <div>
             <div className="flex items-center gap-3 mb-1">
               <span className="text-3xl">{tool.icon}</span>
-              <h1 className="text-2xl font-semibold">{tool.name}</h1>
+              <h1 className="text-2xl font-semibold">{seo.h1 ?? tool.name}</h1>
             </div>
             <p className="text-zinc-400 text-sm">{tool.description}</p>
           </div>

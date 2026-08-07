@@ -117,24 +117,42 @@ export function HomePage({ onSearchClick }: HomePageProps) {
         })}
       </div>
 
-      {/* SEO content */}
-      <section className="max-w-3xl mx-auto px-4 pb-16 text-sm space-y-4">
+      {/* SEO landing content — keyword-rich, crawlable */}
+      <section className="max-w-3xl mx-auto px-4 pb-16 text-sm space-y-6">
         <h2 className="text-lg font-semibold text-zinc-300">Free Online Tools — Private & Browser-Based</h2>
         <p className="text-zinc-500 leading-relaxed">
           Privy is a free collection of 36+ online tools for developers, creators, and professionals.
-          Format JSON, merge PDFs, compress images, decode JWTs, calculate EMI, compute GST, and much more —
+          Format JSON, compare JSON files, merge PDFs, compress images, decode JWTs, calculate EMI, compute GST, and much more —
           all running locally in your browser. No file uploads. No accounts. No tracking.
         </p>
+
+        <div className="glass-card p-5 space-y-2">
+          <h3 className="font-semibold text-zinc-300">JSON Formatter Online Free</h3>
+          <p className="text-zinc-500 leading-relaxed">
+            Privy's <Link to="/tools/json" className="text-indigo-400 hover:underline">JSON Formatter</Link> is a
+            best-in-class free online JSON formatter. Beautify, validate, minify, and pretty print JSON instantly.
+            Unlike jsonformatter.org, your data is never uploaded — everything runs locally in your browser.
+          </p>
+        </div>
+
+        <div className="glass-card p-5 space-y-2">
+          <h3 className="font-semibold text-zinc-300">JSON Diff & JSON Differ Online</h3>
+          <p className="text-zinc-500 leading-relaxed">
+            Compare two JSON files with our free <Link to="/tools/diff" className="text-indigo-400 hover:underline">JSON Diff</Link> tool.
+            See added, removed, and changed values with color-coded highlights. The best JSON differ that runs without uploading your data.
+          </p>
+        </div>
+
         <p className="text-zinc-500 leading-relaxed">
           Popular tools:{' '}
           <Link to="/tools/json" className="text-indigo-400 hover:underline">JSON Formatter</Link>,{' '}
+          <Link to="/tools/diff" className="text-indigo-400 hover:underline">JSON Diff</Link>,{' '}
           <Link to="/tools/jwt-decoder" className="text-indigo-400 hover:underline">JWT Decoder</Link>,{' '}
           <Link to="/tools/pdf-merge" className="text-indigo-400 hover:underline">PDF Merge</Link>,{' '}
           <Link to="/tools/image-compressor" className="text-indigo-400 hover:underline">Image Compressor</Link>,{' '}
           <Link to="/tools/emi-calculator" className="text-indigo-400 hover:underline">EMI Calculator</Link>,{' '}
           <Link to="/tools/gst-calculator" className="text-indigo-400 hover:underline">GST Calculator</Link>,{' '}
-          <Link to="/tools/yaml-json" className="text-indigo-400 hover:underline">YAML to JSON</Link>,{' '}
-          <Link to="/tools/diff" className="text-indigo-400 hover:underline">JSON Diff</Link>.
+          <Link to="/tools/yaml-json" className="text-indigo-400 hover:underline">YAML to JSON</Link>.
         </p>
       </section>
     </div>

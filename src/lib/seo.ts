@@ -28,10 +28,13 @@ export interface ToolSeoContent {
   title: string
   description: string
   keywords: string[]
+  h1?: string
   about: string
+  extraSections?: { heading: string; body: string }[]
   howItWorks: string[]
   features: string[]
   faqs: { q: string; a: string }[]
+  relatedTools?: { name: string; path: string; description: string }[]
   limitations?: string[]
 }
 

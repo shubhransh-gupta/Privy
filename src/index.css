@@ -188,4 +188,7 @@ body {
 
 /* Privacy badge stays green in both modes */
 .light .text-emerald-400 { color: #059669 !important; }
-.light .text-emerald-400\/80 { color: rgba(5, 150, 105, 0.8) !important; }
+/* Hide static prerender SEO content once React app mounts */
+#root:not(:empty) + #seo-static {
+  display: none;
+}

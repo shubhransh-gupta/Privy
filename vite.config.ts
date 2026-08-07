@@ -4,7 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { generateRobotsTxt, generateSitemap } from './scripts/sitemap.js'
 
 const base = process.env.GITHUB_PAGES === 'true' ? '/Privy/' : '/'
 const isGhPages = process.env.GITHUB_PAGES === 'true'
@@ -58,11 +57,9 @@ export default defineConfig({
     }),
     {
       name: 'gh-pages-spa-fallback',
-      closeBundle() {
-        const dist = resolve(__dirname, 'dist')
-        writeFileSync(resolve(dist, 'sitemap.xml'), generateSitemap())
-        writeFileSync(resolve(dist, 'robots.txt'), generateRobotsTxt())
+      async closeBundle() {
         if (!isGhPages) return
+        const dist = resolve(__dirname, 'dist')
         writeFileSync(resolve(dist, '404.html'), GH_PAGES_404)
       },
     },

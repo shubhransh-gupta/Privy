@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useMemo } from 'react'
 import type { ToolDefinition } from '../lib/toolRegistry'
 import { CATEGORY_META } from '../lib/toolRegistry'
@@ -24,6 +25,13 @@ export function ToolSeoSection({ tool }: ToolSeoSectionProps) {
         <p className="text-zinc-400 leading-relaxed">{seo.about}</p>
       </div>
 
+      {seo.extraSections?.map((section) => (
+        <div key={section.heading} className="glass-card p-6 space-y-2">
+          <h2 className="text-base font-semibold text-zinc-200">{section.heading}</h2>
+          <p className="text-zinc-400 leading-relaxed">{section.body}</p>
+        </div>
+      ))}
+
       <div className="grid md:grid-cols-2 gap-4">
         <div className="glass-card p-6 space-y-3">
           <h2 className="text-base font-semibold text-zinc-200">How it works</h2>
@@ -46,6 +54,24 @@ export function ToolSeoSection({ tool }: ToolSeoSectionProps) {
           </ul>
         </div>
       </div>
+
+      {seo.relatedTools && seo.relatedTools.length > 0 && (
+        <div className="glass-card p-6 space-y-3">
+          <h2 className="text-base font-semibold text-zinc-200">Related tools</h2>
+          <div className="grid sm:grid-cols-2 gap-2">
+            {seo.relatedTools.map((related) => (
+              <Link
+                key={related.path}
+                to={related.path}
+                className="rounded-lg border border-zinc-800 px-4 py-3 hover:border-zinc-700 hover:bg-zinc-900/50 transition-colors"
+              >
+                <p className="font-medium text-zinc-300 text-sm">{related.name}</p>
+                <p className="text-xs text-zinc-500 mt-0.5">{related.description}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="glass-card p-6 space-y-4">
         <h2 className="text-base font-semibold text-zinc-200">Frequently asked questions</h2>
