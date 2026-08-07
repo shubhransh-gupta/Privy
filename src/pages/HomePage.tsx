@@ -4,12 +4,15 @@ import { TOOLS, CATEGORY_META, getPopularTools, type ToolCategory } from '../lib
 import { getRecentTools, getFavorites } from '../lib/storage'
 import { ToolCard } from '../components/ToolCard'
 import { getToolById } from '../lib/toolRegistry'
+import { useHomeSEO } from '../hooks/useSEO'
 
 interface HomePageProps {
   onSearchClick: () => void
 }
 
 export function HomePage({ onSearchClick }: HomePageProps) {
+  useHomeSEO()
+
   const popular = getPopularTools()
   const recentIds = getRecentTools()
   const favoriteIds = getFavorites()
@@ -113,6 +116,27 @@ export function HomePage({ onSearchClick }: HomePageProps) {
           )
         })}
       </div>
+
+      {/* SEO content */}
+      <section className="max-w-3xl mx-auto px-4 pb-16 text-sm space-y-4">
+        <h2 className="text-lg font-semibold text-zinc-300">Free Online Tools — Private & Browser-Based</h2>
+        <p className="text-zinc-500 leading-relaxed">
+          Privy is a free collection of 36+ online tools for developers, creators, and professionals.
+          Format JSON, merge PDFs, compress images, decode JWTs, calculate EMI, compute GST, and much more —
+          all running locally in your browser. No file uploads. No accounts. No tracking.
+        </p>
+        <p className="text-zinc-500 leading-relaxed">
+          Popular tools:{' '}
+          <Link to="/tools/json" className="text-indigo-400 hover:underline">JSON Formatter</Link>,{' '}
+          <Link to="/tools/jwt-decoder" className="text-indigo-400 hover:underline">JWT Decoder</Link>,{' '}
+          <Link to="/tools/pdf-merge" className="text-indigo-400 hover:underline">PDF Merge</Link>,{' '}
+          <Link to="/tools/image-compressor" className="text-indigo-400 hover:underline">Image Compressor</Link>,{' '}
+          <Link to="/tools/emi-calculator" className="text-indigo-400 hover:underline">EMI Calculator</Link>,{' '}
+          <Link to="/tools/gst-calculator" className="text-indigo-400 hover:underline">GST Calculator</Link>,{' '}
+          <Link to="/tools/yaml-json" className="text-indigo-400 hover:underline">YAML to JSON</Link>,{' '}
+          <Link to="/tools/diff" className="text-indigo-400 hover:underline">JSON Diff</Link>.
+        </p>
+      </section>
     </div>
   )
 }

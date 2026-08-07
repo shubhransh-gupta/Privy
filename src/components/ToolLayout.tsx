@@ -5,7 +5,7 @@ import type { ToolDefinition } from '../lib/toolRegistry'
 import { CATEGORY_META } from '../lib/toolRegistry'
 import { PrivacyBadge, PrivacyModal } from './PrivacyBadge'
 import { isFavorite, toggleFavorite, addRecentTool } from '../lib/storage'
-import { useDocumentTitle } from '../hooks/useKeyboardShortcut'
+import { ToolSeoSection, useToolSEO } from './ToolSeoSection'
 import { useEffect } from 'react'
 import { cn } from '../lib/utils'
 
@@ -20,7 +20,7 @@ export function ToolLayout({ tool, children, actions }: ToolLayoutProps) {
   const [fav, setFav] = useState(() => isFavorite(tool.id))
   const cat = CATEGORY_META[tool.category]
 
-  useDocumentTitle(tool.name)
+  useToolSEO(tool)
 
   useEffect(() => {
     addRecentTool(tool.id)
@@ -65,6 +65,8 @@ export function ToolLayout({ tool, children, actions }: ToolLayoutProps) {
       </div>
 
       <PrivacyModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
+
+      <ToolSeoSection tool={tool} />
     </div>
   )
 }

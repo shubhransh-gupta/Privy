@@ -1,7 +1,13 @@
-import { useDocumentTitle } from '../hooks/useKeyboardShortcut'
+import { useSEO } from '../hooks/useSEO'
 
 export function SecurityPage() {
-  useDocumentTitle('Privacy & Security')
+  useSEO({
+    title: 'Privacy & Security — Local Browser Processing',
+    description:
+      'Learn how Privy protects your privacy. All tools run locally in your browser. No file uploads, no accounts, no tracking. Open source and offline-capable.',
+    path: '/security',
+    keywords: ['privacy tools', 'local processing', 'no upload tools', 'browser privacy', 'secure online tools'],
+  })
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12 animate-fade-in">

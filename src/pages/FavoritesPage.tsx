@@ -1,10 +1,15 @@
 import { getFavorites } from '../lib/storage'
 import { getToolById } from '../lib/toolRegistry'
 import { ToolCard } from '../components/ToolCard'
-import { useDocumentTitle } from '../hooks/useKeyboardShortcut'
+import { useSEO } from '../hooks/useSEO'
 
 export function FavoritesPage() {
-  useDocumentTitle('Favorites')
+  useSEO({
+    title: 'My Favorite Tools',
+    description: 'Your starred Privy tools, saved locally in this browser.',
+    path: '/favorites',
+    noindex: true,
+  })
   const favorites = getFavorites().map(getToolById).filter(Boolean)
 
   return (
