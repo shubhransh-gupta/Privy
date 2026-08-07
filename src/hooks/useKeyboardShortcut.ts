@@ -28,7 +28,7 @@ export function useKeyboardShortcut(
 export function useDocumentTitle(title: string) {
   useEffect(() => {
     const prev = document.title
-    document.title = title ? `${title} — LocalTools` : 'LocalTools — Your private toolbox for the web'
+    document.title = title ? `${title} — Privy` : 'Privy — Your private toolbox for the web'
     return () => { document.title = prev }
   }, [title])
 }

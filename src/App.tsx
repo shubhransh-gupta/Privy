@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, type ComponentType } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Header, useCommandPalette } from './components/CommandPalette'
 import { Sidebar, MobileNav } from './components/Sidebar'
@@ -7,9 +7,14 @@ import { HomePage } from './pages/HomePage'
 import { CategoryPage } from './pages/CategoryPage'
 import { FavoritesPage } from './pages/FavoritesPage'
 import { SecurityPage } from './pages/SecurityPage'
-import { TOOLS, type ToolCategory } from './lib/toolRegistry'
+import { TOOLS, type ToolCategory, type ToolDefinition } from './lib/toolRegistry'
 
 const CATEGORIES: ToolCategory[] = ['documents', 'images', 'developer', 'india', 'privacy', 'business']
+
+// Create lazy components once at module level — calling lazy() inside render causes infinite loading
+const LAZY_TOOLS = new Map<string, ComponentType>(
+  TOOLS.map((tool) => [tool.id, lazy(tool.component)])
+)
 
 function AppLayout() {
   const { setOpen, CommandPalette } = useCommandPalette()
@@ -51,8 +56,8 @@ function AppLayout() {
   )
 }
 
-function LazyToolComponent({ tool }: { tool: (typeof TOOLS)[0] }) {
-  const Component = lazy(tool.component)
+function LazyToolComponent({ tool }: { tool: ToolDefinition }) {
+  const Component = LAZY_TOOLS.get(tool.id)!
   return <Component />
 }
 

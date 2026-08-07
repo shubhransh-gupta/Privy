@@ -50,7 +50,7 @@ export function SecurityPage() {
         <section className="glass-card p-6">
           <h2 className="text-lg font-semibold mb-2">No Analytics</h2>
           <p className="text-sm text-zinc-400 leading-relaxed">
-            LocalTools does not include third-party analytics by default. We don't track what files
+            Privy does not include third-party analytics by default. We don't track what files
             you process or what data you enter.
           </p>
         </section>
@@ -70,8 +70,8 @@ export function SecurityPage() {
         <section className="glass-card p-6">
           <h2 className="text-lg font-semibold mb-2">Offline Support</h2>
           <p className="text-sm text-zinc-400 leading-relaxed">
-            LocalTools is a Progressive Web App. After your first visit, you can install it and use
-            most tools offline. Look for "Install LocalTools" in your browser menu.
+            Privy is a Progressive Web App. After your first visit, you can install it and use
+            most tools offline. Look for "Install Privy" in your browser menu.
           </p>
           <p className="text-xs text-emerald-400 mt-3">✓ Available Offline</p>
         </section>

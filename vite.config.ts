@@ -12,8 +12,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'LocalTools',
-        short_name: 'LocalTools',
+        name: 'Privy',
+        short_name: 'Privy',
         description: 'Your private toolbox for the web. Runs entirely in your browser.',
         theme_color: '#0a0a0a',
         background_color: '#0a0a0a',

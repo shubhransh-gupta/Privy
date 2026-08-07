@@ -83,7 +83,7 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search LocalTools..."
+            placeholder="Search Privy..."
             className="flex-1 bg-transparent text-sm outline-none placeholder:text-zinc-600"
           />
           <kbd className="text-[10px] text-zinc-600 border border-zinc-700 rounded px-1.5 py-0.5">ESC</kbd>
@@ -137,7 +137,7 @@ export function Header({ onSearchClick }: { onSearchClick: () => void }) {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 h-14">
         <a href="/" className="flex items-center gap-2 font-semibold text-lg">
           <span className="text-indigo-400">◆</span>
-          LocalTools
+          Privy
         </a>
 
         <button
