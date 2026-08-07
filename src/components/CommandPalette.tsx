@@ -132,11 +132,20 @@ export function useCommandPalette() {
 
 export function Header({ onSearchClick }: { onSearchClick: () => void }) {
   const { isDark, toggle } = useTheme()
+  const navigate = useNavigate()
 
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 h-14">
-        <Link to="/" className="flex items-center gap-2 font-semibold text-lg">
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-semibold text-lg"
+          onClick={(e) => {
+            if (e.metaKey || e.ctrlKey || e.shiftKey) return
+            e.preventDefault()
+            navigate('/')
+          }}
+        >
           <span className="text-indigo-400">◆</span>
           Privy
         </Link>

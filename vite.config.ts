@@ -2,10 +2,31 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import { copyFileSync, existsSync } from 'node:fs'
+import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 const base = process.env.GITHUB_PAGES === 'true' ? '/Privy/' : '/'
+const isGhPages = process.env.GITHUB_PAGES === 'true'
+
+const GH_PAGES_404 = `<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Privy</title>
+    <script type="text/javascript">
+      var segmentCount = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>`
 
 export default defineConfig({
   base,
@@ -37,11 +58,9 @@ export default defineConfig({
     {
       name: 'gh-pages-spa-fallback',
       closeBundle() {
-        const index = resolve(__dirname, 'dist/index.html')
+        if (!isGhPages) return
         const notFound = resolve(__dirname, 'dist/404.html')
-        if (existsSync(index)) {
-          copyFileSync(index, notFound)
-        }
+        writeFileSync(notFound, GH_PAGES_404)
       },
     },
   ],

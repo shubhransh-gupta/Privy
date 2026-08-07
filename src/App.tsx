@@ -8,6 +8,7 @@ import { CategoryPage } from './pages/CategoryPage'
 import { FavoritesPage } from './pages/FavoritesPage'
 import { SecurityPage } from './pages/SecurityPage'
 import { TOOLS, type ToolCategory, type ToolDefinition } from './lib/toolRegistry'
+import { getBasename } from './lib/router'
 
 const CATEGORIES: ToolCategory[] = ['documents', 'images', 'developer', 'india', 'privacy', 'business']
 
@@ -78,7 +79,7 @@ function SuspenseWrapper({ children, name }: { children: React.ReactNode; name: 
 
 export default function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={getBasename()}>
       <AppLayout />
     </BrowserRouter>
   )
